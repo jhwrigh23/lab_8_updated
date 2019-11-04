@@ -60,9 +60,20 @@ classoption       : "man"
 output            : papaja::apa6_pdf
 ---
 
-```{r setup, include = FALSE}
+```{r setup, include = FALSE, echo = false, fig.width=6.5, fig.height=8}
 library("papaja")
+library(tidyverse)
+library(dplyr)
+library(rio)
+library(here)
+library(janitor)
 ```
+
+```{r}
+here("star.csv")
+star <- import(here("data", "star.csv"))
+```
+
 
 ```{r analysis-preferences}
 # Seed for random number generation
