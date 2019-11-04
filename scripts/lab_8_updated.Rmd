@@ -1,0 +1,105 @@
+---
+title             : "Lab 8 Updated"
+shorttitle        : "Practicing creating APA manuscript"
+
+author: 
+  - name          : "Joanna"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "joanna@email.com"
+  - name          : "Ernst-August Doelle"
+    affiliation   : "1,2"
+    
+author: 
+  - name          : "Thuy"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "thuy@email.com"
+  - name          : "Ernst-August Doelle"
+    affiliation   : "1,2"
+    
+author: 
+  - name          : "Asha"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "asha@email.com"
+  - name          : "Ernst-August Doelle"
+    affiliation   : "1,2"            
+
+affiliation:
+  - id            : "1"
+    institution   : "University of Oregon"
+  - id            : "2"
+    institution   : "University of R"
+
+authornote: |
+  We are also affilicated with EDLD 610 Introduction to Data Science
+
+abstract: |
+This has taken us numerous attempts because we got very confused about the filing system. But now we have figured it out! 
+
+  
+keywords          : "learning", "R", "takes", "practice"
+wordcount         : no
+
+bibliography      : ["r-references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : no
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+
+
+# Methods
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Participants
+
+## Material
+
+## Procedure
+
+## Data analysis
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+
+# Results
+
+# Discussion
+
+
+\newpage
+
+# References
+```{r create_r-references}
+r_refs(file = "r-references.bib")
+```
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id = "refs"></div>
+\endgroup
