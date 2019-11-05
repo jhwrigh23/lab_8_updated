@@ -8,44 +8,37 @@ author:
     corresponding : yes    # Define only one corresponding author
     address       : "Postal address"
     email         : "joanna@email.com"
-  - name          : "Ernst-August Doelle"
-    affiliation   : "1,2"
-    
-author: 
   - name          : "Thuy"
-    affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
+    affiliation   : "2"
+    corresponding : no    # Define only one corresponding author
     address       : "Postal address"
     email         : "thuy@email.com"
-  - name          : "Ernst-August Doelle"
-    affiliation   : "1,2"
-    
-author: 
   - name          : "Asha"
-    affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
+    affiliation   : "3"
+    corresponding : no    # Define only one corresponding author
     address       : "Postal address"
     email         : "asha@email.com"
-  - name          : "Ernst-August Doelle"
-    affiliation   : "1,2"            
 
 affiliation:
   - id            : "1"
     institution   : "University of Oregon"
   - id            : "2"
     institution   : "University of R"
+  - id            : "3"
+    institution   : "University of Data Science"
 
 authornote: |
-  We are also affilicated with EDLD 610 Introduction to Data Science
+  We are also affilicated with EDLD 610 Introduction to Data Science.
 
 abstract: |
-This has taken us numerous attempts because we got very confused about the filing system. But now we have figured it out! 
+  Example of abstract goes here. 
+  <!-- https://tinyurl.com/ybremelq -->
 
   
-keywords          : "learning", "R", "takes", "practice"
+keywords          : "learning, R, takes, practice"
 wordcount         : no
 
-bibliography      : ["r-references.bib"]
+bibliography      : ["lab_8_updated_bibliography.bib"]
 
 floatsintext      : no
 figurelist        : no
@@ -60,13 +53,13 @@ classoption       : "man"
 output            : papaja::apa6_pdf
 ---
 
-```{r setup, include = FALSE, echo = false, fig.width=6.5, fig.height=8}
+```{r setup, include = FALSE, echo = FALSE, fig.width = 6.5, fig.height = 8}
 library("papaja")
-library(tidyverse)
-library(dplyr)
-library(rio)
-library(here)
-library(janitor)
+library("tidyverse")
+library("dplyr")
+library("rio")
+library("here")
+library("janitor")
 ```
 
 ```{r}
@@ -81,10 +74,11 @@ set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
-
+# Introduction 
+ 
+Many researchers have used the World Survey Data to investigate happiness [@easterlin2009happiness]. For example, @snoep2008religiousness found an association between happiness and religiosity...etc etc... 
 
 # Methods
-We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
 
 ## Participants
 
@@ -93,8 +87,6 @@ We report how we determined our sample size, all data exclusions (if any), all m
 ## Procedure
 
 ## Data analysis
-We used `r cite_r("r-references.bib")` for all our analyses.
-
 
 # Results
 
@@ -105,7 +97,7 @@ We used `r cite_r("r-references.bib")` for all our analyses.
 
 # References
 ```{r create_r-references}
-r_refs(file = "r-references.bib")
+r_refs(file = "lab_8_updated_bibliography.bib")
 ```
 
 \begingroup
