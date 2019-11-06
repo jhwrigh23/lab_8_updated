@@ -63,6 +63,9 @@ library("here")
 library("janitor")
 library("knitr")
 library("kableExtra")
+library("ggplot2")
+library("here")
+library("devtools")
 ```
 
 ```{r}
@@ -99,6 +102,8 @@ kable(digits = 2,
 
 
 # How can we make 4 rows, 2 for boys and 2 for girls, and each has 1 yes and 1 no for frl?
+
+
 ```
 
 In average, girls score higher in both math and reading subjects. 
@@ -136,3 +141,10 @@ r_refs(file = "lab_8_updated_bibliography.bib")
 
 <div id = "refs"></div>
 \endgroup
+```{r plot}
+#Create a plot
+ggplot(star, aes(x = totexp , y = tmathss)) +
+  geom_point() + geom_smooth() + xlab("Teacher Experience (years)") + ylab("Total Math Scale Score") + theme(legend.position = "bottom")
+```
+
+
