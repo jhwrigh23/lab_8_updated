@@ -55,7 +55,7 @@ output            : papaja::apa6_pdf
 
 ```{r setup, include = FALSE, echo = FALSE, fig.width = 6.5, fig.height = 8}
 #install.packages("kableExtra")
-library("papaja")
+library(papaja)
 library("tidyverse")
 library("dplyr")
 library("rio")
@@ -74,35 +74,19 @@ star <- import(here("data", "star.csv"))
 ```
 
 
-```{r analysis-preferences}
-# Seed for random number generation
-set.seed(42)
-knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
-
-```
-
 
 ```{r}
 
-star <- star %>%
+star_sumry <- star %>%
   group_by(sex, frl) %>% 
-  mutate(math_mean = round(mean(tmathss),2),
+  summarise(math_mean = round(mean(tmathss),2),
          math_sd = round(sd(tmathss),2),
          rdg_mean = round(mean(treadss),2),
-         rdg_sd = round(sd(treadss),2))
+         rdg_sd = round(sd(treadss),2)) 
 
-star <- star %>% 
-  select("sex", "frl", "math_mean", "math_sd", "rdg_mean", "rdg_sd")
-
-# I tried kable but it doesn't seem to work. 
-kable(digits = 2,
-        col.names = c("sex", "frl", "math_mean", "math_sd", "rdg_mean", "rdg_sd"),
-        format = "html") %>% 
+star_sumry %>% 
+  kable() %>% 
   kable_styling(bootstrap_options = c("striped", "condensed"))
-
-
-# How can we make 4 rows, 2 for boys and 2 for girls, and each has 1 yes and 1 no for frl?
-
 
 
 ```
@@ -148,13 +132,5 @@ ggplot(star, aes(x = totexp , y = tmathss)) +
   geom_point() + geom_smooth() + xlab("Teacher Experience (years)") + ylab("Total Math Scale Score") + theme(legend.position = "bottom")
 ```
 
-```{r, table}
-library(kableExtra)
-star %>%
-  kable()%>%
-  kable_styling(bootstrap_options = "striped", full_width = F)
-  
-  
-```
 
 
